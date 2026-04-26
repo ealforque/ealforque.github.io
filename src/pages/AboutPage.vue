@@ -28,7 +28,7 @@ useScrollReveal()
       </div>
 
       <aside class="md:col-span-5">
-        <div class="glass rounded-2xl p-6">
+        <div class="ui-weld glass rounded-2xl p-6">
           <p class="font-mono text-[11px] uppercase tracking-[0.3em] text-accent/80">Quick facts</p>
           <dl class="mt-5 space-y-4 text-sm">
             <div class="flex items-baseline justify-between gap-6">
@@ -60,7 +60,7 @@ useScrollReveal()
         <div
           v-for="s in strengths"
           :key="s.title"
-          class="reveal rounded-2xl border border-white/10 bg-white/[0.03] p-6"
+          class="reveal ui-weld rounded-2xl border border-white/10 bg-white/[0.03] p-6"
         >
           <h3 class="heading text-lg">{{ s.title }}</h3>
           <p class="mt-2 text-sm text-muted">{{ s.body }}</p>
@@ -76,7 +76,7 @@ useScrollReveal()
         <div
           v-for="(items, group) in techStack"
           :key="group"
-          class="reveal rounded-2xl border border-white/10 bg-white/[0.03] p-6"
+          class="reveal ui-weld rounded-2xl border border-white/10 bg-white/[0.03] p-6"
         >
           <p class="font-mono text-[11px] uppercase tracking-[0.3em] text-ink-400">
             {{ group }}
@@ -101,7 +101,7 @@ useScrollReveal()
           :href="p.link || '#'"
           :target="p.link ? '_blank' : undefined"
           :rel="p.link ? 'noopener noreferrer' : undefined"
-          class="group rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-all duration-300 ease-in-out hover:scale-[1.02] hover:border-white/20 hover:bg-white/[0.06] hover:shadow-glow"
+          class="ui-weld group rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-all duration-300 ease-in-out hover:scale-[1.02] hover:border-white/20 hover:bg-white/[0.06] hover:shadow-glow"
         >
           <h3 class="heading text-lg">{{ p.name }}</h3>
           <p class="mt-2 text-sm text-muted">{{ p.purpose }}</p>

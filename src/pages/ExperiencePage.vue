@@ -45,7 +45,7 @@ useScrollReveal()
         <div
           :class="i % 2 === 0 ? 'mt-6 md:mt-0 md:pl-12' : 'mt-6 md:mt-0 md:order-1 md:pr-12 md:text-right'"
         >
-          <div class="glass rounded-2xl p-6">
+          <div class="ui-weld glass rounded-2xl p-6">
             <ul class="space-y-3 text-sm text-ink-200">
               <li
                 v-for="a in item.achievements"

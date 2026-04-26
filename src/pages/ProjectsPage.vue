@@ -18,7 +18,7 @@ useScrollReveal()
       <article
         v-for="p in timeline"
         :key="p.id"
-        class="reveal group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-all duration-300 ease-in-out hover:scale-[1.03] hover:border-white/20 hover:bg-white/[0.06] hover:shadow-glow"
+        class="reveal ui-weld group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-all duration-300 ease-in-out hover:scale-[1.03] hover:border-white/20 hover:bg-white/[0.06] hover:shadow-glow"
       >
         <div class="relative">
           <span class="font-mono text-[10px] uppercase tracking-[0.3em] text-accent/80">

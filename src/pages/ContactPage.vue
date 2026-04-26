@@ -34,7 +34,7 @@ function submit() {
 
     <div class="mt-16 grid gap-10 md:grid-cols-12">
       <div class="reveal md:col-span-5 space-y-6">
-        <div class="glass rounded-2xl p-6">
+        <div class="ui-weld glass rounded-2xl p-6">
           <p class="font-mono text-[11px] uppercase tracking-[0.3em] text-accent/80">Direct</p>
           <a
             :href="`mailto:${profile.email}`"
@@ -45,22 +45,22 @@ function submit() {
           <p class="mt-3 text-sm text-muted">Best for project inquiries and collaboration.</p>
         </div>
 
-        <div class="glass rounded-2xl p-6">
+        <div class="ui-weld glass rounded-2xl p-6">
           <p class="font-mono text-[11px] uppercase tracking-[0.3em] text-accent/80">Elsewhere</p>
           <div class="mt-4 flex flex-wrap gap-3">
-            <a :href="profile.socials.github" target="_blank" rel="noopener" class="btn-ghost">
+            <a :href="profile.socials.github" target="_blank" rel="noopener" class="btn-ghost ui-weld">
               GitHub
             </a>
-            <a :href="profile.socials.linkedin" target="_blank" rel="noopener" class="btn-ghost">
+            <a :href="profile.socials.linkedin" target="_blank" rel="noopener" class="btn-ghost ui-weld">
               LinkedIn
             </a>
-            <a :href="profile.socials.npm" target="_blank" rel="noopener" class="btn-ghost">
+            <a :href="profile.socials.npm" target="_blank" rel="noopener" class="btn-ghost ui-weld">
               NPM
             </a>
           </div>
         </div>
 
-        <div class="glass rounded-2xl p-6">
+        <div class="ui-weld glass rounded-2xl p-6">
           <p class="font-mono text-[11px] uppercase tracking-[0.3em] text-accent/80">Details</p>
           <dl class="mt-4 space-y-3 text-sm">
             <div class="flex items-baseline justify-between gap-6">
@@ -120,7 +120,7 @@ function submit() {
           <p v-else class="text-xs text-muted">
             Submitting opens your email client. No data is stored.
           </p>
-          <button type="submit" class="btn-primary disabled:opacity-50" :disabled="!valid">
+          <button type="submit" class="btn-primary ui-weld disabled:opacity-50" :disabled="!valid">
             Send
             <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />

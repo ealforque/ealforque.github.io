@@ -14,8 +14,8 @@ const year = new Date().getFullYear()
           </p>
         </div>
         <div class="flex items-center gap-3">
-          <a :href="`mailto:${profile.email}`" class="btn-ghost">Email me</a>
-          <a :href="profile.socials.linkedin" target="_blank" rel="noopener" class="btn-ghost">LinkedIn</a>
+          <a :href="`mailto:${profile.email}`" class="btn-ghost ui-weld">Email me</a>
+          <a :href="profile.socials.linkedin" target="_blank" rel="noopener" class="btn-ghost ui-weld">LinkedIn</a>
         </div>
       </div>
       <div class="divider mt-10" />

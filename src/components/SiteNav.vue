@@ -34,12 +34,12 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
   >
     <div class="container-page">
       <nav
-        class="flex items-center justify-between rounded-full px-3 py-2 transition-all duration-500 ease-in-out"
-        :class="scrolled ? 'glass shadow-soft' : 'bg-transparent'"
+        class="flex items-center justify-between rounded-full px-3 py-2 border border-transparent transition-all duration-500 ease-in-out"
+        :class="scrolled ? 'bg-white/5 backdrop-blur-xl shadow-soft' : 'bg-transparent'"
       >
         <RouterLink
           to="/"
-          class="group flex items-center gap-2 pl-2 pr-4 py-1 text-sm font-semibold tracking-tight"
+          class="ui-weld group flex items-center gap-2 pl-2 pr-4 py-1 text-sm font-semibold tracking-tight"
         >
           <span
             class="grid h-7 w-7 place-items-center rounded-lg bg-gradient-to-br from-accent to-cyan-400 text-white shadow-glow"
@@ -53,8 +53,8 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
           <li v-for="l in links" :key="l.to">
             <RouterLink
               :to="l.to"
-              class="relative inline-flex rounded-full px-4 py-2 text-sm text-ink-300 transition-colors duration-300 hover:text-white"
-              :class="{ 'text-white': route.path === l.to }"
+              class="ui-weld relative inline-flex rounded-full px-4 py-2 text-sm text-ink-300 transition-colors duration-300 hover:text-white"
+              :class="{ 'text-white': route.path === l.to, 'is-active': route.path === l.to }"
             >
               <span
                 v-if="route.path === l.to"
@@ -69,12 +69,12 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
         <div class="flex items-center gap-2 pr-1">
           <RouterLink
             to="/contact"
-            class="hidden sm:inline-flex btn-ghost !py-2 !px-5 text-xs"
+            class="hidden sm:inline-flex btn-ghost ui-weld !py-2 !px-5 text-xs"
           >
             Get in touch
           </RouterLink>
           <button
-            class="lg:hidden grid h-9 w-9 place-items-center rounded-full border border-white/10 bg-white/5"
+            class="lg:hidden ui-weld grid h-9 w-9 place-items-center rounded-full border border-white/10 bg-white/5"
             :aria-expanded="open"
             aria-label="Toggle menu"
             @click="open = !open"
@@ -106,7 +106,8 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
             v-for="l in links"
             :key="l.to"
             :to="l.to"
-            class="block rounded-xl px-4 py-3 text-sm text-ink-200 hover:bg-white/5"
+            class="ui-weld block rounded-xl px-4 py-3 text-sm text-ink-200 hover:bg-white/5"
+            :class="{ 'is-active': route.path === l.to }"
             @click="open = false"
           >
             {{ l.label }}

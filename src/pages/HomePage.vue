@@ -68,7 +68,7 @@ const featured = FEATURED_IDS
           <p class="mt-3 max-w-xl text-sm text-muted">{{ profile.intro }}</p>
 
           <div class="mt-10 flex flex-wrap items-center gap-3">
-            <RouterLink to="/projects" class="btn-primary">
+            <RouterLink to="/projects" class="btn-primary ui-weld">
               View projects
               <svg
                 viewBox="0 0 24 24"
@@ -84,70 +84,64 @@ const featured = FEATURED_IDS
                 />
               </svg>
             </RouterLink>
-            <RouterLink to="/contact" class="btn-ghost">Contact</RouterLink>
+            <RouterLink to="/contact" class="btn-ghost ui-weld">Contact</RouterLink>
           </div>
         </div>
 
         <div class="lg:col-span-5">
           <div
             ref="photoEl"
-            class="relative mx-auto w-full max-w-sm transition-transform duration-200 ease-out animate-float"
+            class="relative mx-auto w-full max-w-md transition-transform duration-200 ease-out animate-float"
           >
-            <div
-              class="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-accent/30 via-fuchsia-500/20 to-cyan-400/20 blur-2xl"
-            />
-            <div class="relative glass overflow-hidden rounded-[2rem] p-2 shadow-soft">
-              <div
-                class="aspect-[4/5] w-full overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-ink-800 to-ink-900"
-              >
-                <svg
-                  viewBox="0 0 400 500"
-                  class="h-full w-full"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
+            <div class="profile-orbit" data-cursor="hover">
+              <div class="profile-aura" aria-hidden="true" />
+              <div class="profile-ring" aria-hidden="true">
+                <span class="profile-spark-orbit" />
+              </div>
+
+              <div class="profile-core">
+                <svg viewBox="0 0 400 400" class="h-full w-full" xmlns="http://www.w3.org/2000/svg">
                   <defs>
                     <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
-                      <stop offset="0%" stop-color="#1a1a2e" />
-                      <stop offset="100%" stop-color="#0b0d12" />
+                      <stop offset="0%" stop-color="#161a26" />
+                      <stop offset="100%" stop-color="#090b12" />
                     </linearGradient>
                     <linearGradient id="skin" x1="0" x2="1" y1="0" y2="1">
                       <stop offset="0%" stop-color="#7c5cff" />
                       <stop offset="100%" stop-color="#22d3ee" />
                     </linearGradient>
-                    <radialGradient id="halo" cx="50%" cy="35%" r="40%">
-                      <stop offset="0%" stop-color="rgba(124,92,255,0.35)" />
+                    <radialGradient id="halo" cx="50%" cy="36%" r="42%">
+                      <stop offset="0%" stop-color="rgba(124,92,255,0.36)" />
                       <stop offset="100%" stop-color="rgba(124,92,255,0)" />
                     </radialGradient>
                   </defs>
-                  <rect width="400" height="500" fill="url(#bg)" />
-                  <circle cx="200" cy="180" r="140" fill="url(#halo)" />
+                  <rect width="400" height="400" rx="200" fill="url(#bg)" />
+                  <circle cx="200" cy="155" r="130" fill="url(#halo)" />
                   <path
-                    d="M60 500 C 80 380, 150 340, 200 340 C 250 340, 320 380, 340 500 Z"
+                    d="M72 400 C 92 300, 150 258, 200 258 C 250 258, 308 300, 328 400 Z"
                     fill="url(#skin)"
-                    opacity="0.85"
+                    opacity="0.84"
                   />
-                  <circle cx="200" cy="220" r="86" fill="url(#skin)" />
+                  <circle cx="200" cy="178" r="78" fill="url(#skin)" />
                   <rect
-                    x="6"
-                    y="6"
-                    width="388"
-                    height="488"
-                    rx="36"
+                    x="8"
+                    y="8"
+                    width="384"
+                    height="384"
+                    rx="192"
                     fill="none"
-                    stroke="rgba(255,255,255,0.08)"
+                    stroke="rgba(255,255,255,0.09)"
                   />
                 </svg>
               </div>
+            </div>
 
-              <div class="mt-3 flex items-center justify-between px-3 pb-1 pt-1">
-                <div>
-                  <p class="font-mono text-[10px] uppercase tracking-[0.3em] text-ink-400">
-                    Currently
-                  </p>
-                  <p class="text-sm">Full Stack Dev @ GemLife</p>
-                </div>
-                <span class="chip">QLD, AU</span>
+            <div class="profile-meta mt-6 flex items-center justify-between px-2">
+              <div>
+                <p class="font-mono text-[10px] uppercase tracking-[0.3em] text-ink-400">Currently</p>
+                <p class="text-sm">Full Stack Dev @ GemLife</p>
               </div>
+              <span class="chip">QLD, AU</span>
             </div>
           </div>
         </div>
@@ -195,7 +189,7 @@ const featured = FEATURED_IDS
         <article
           v-for="s in strengths"
           :key="s.title"
-          class="reveal glass group relative overflow-hidden rounded-2xl p-6 transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-glow"
+          class="reveal ui-weld glass group relative overflow-hidden rounded-2xl p-6 transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-glow"
         >
           <div class="relative">
             <p class="font-mono text-[11px] uppercase tracking-[0.3em] text-accent/80">
@@ -225,7 +219,7 @@ const featured = FEATURED_IDS
           v-for="p in featured"
           :key="p.id"
           to="/projects"
-          class="reveal group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-all duration-300 ease-in-out hover:scale-[1.03] hover:border-white/20 hover:bg-white/[0.06] hover:shadow-glow"
+          class="reveal ui-weld group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-all duration-300 ease-in-out hover:scale-[1.03] hover:border-white/20 hover:bg-white/[0.06] hover:shadow-glow"
         >
           <div class="relative">
             <span class="font-mono text-[10px] uppercase tracking-[0.3em] text-accent/80">
