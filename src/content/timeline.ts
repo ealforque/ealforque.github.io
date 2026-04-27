@@ -352,12 +352,12 @@ export const timeline: TimelineEpisode[] = [
   {
     id: 'sds-filesearch',
     number: '05',
-    title: 'SDS File Search (Semantic + MCP / OpenAPI)',
+    title: 'SDS File Search (Semantic + MCP / OpenAI)',
     org: 'GemLife · AI document retrieval',
     date: 'Nov 2025',
     shortDate: '2025 · 11',
     description:
-      'An AI-enabled document retrieval system for safety data sheets. Uses the Model Context Protocol (MCP) for semantic search and exposes its functionality via a standardized OpenAPI surface so it can be consumed by both AI agents and traditional clients.',
+      'An AI-enabled document retrieval system for safety data sheets. Uses the Model Context Protocol (MCP) for semantic search and exposes its functionality via a standardized OpenAI surface so it can be consumed by both AI agents and traditional clients.',
     architecture: [
       {
         id: 'extract',
@@ -386,7 +386,7 @@ export const timeline: TimelineEpisode[] = [
         title: 'Surfaces',
         caption: 'Agents + apps',
         nodes: [
-          { id: 'openapi', label: 'OpenAPI', detail: 'HTTP clients' },
+          { id: 'openai', label: 'OpenAI', detail: 'HTTP clients' },
           { id: 'agent', label: 'AI Agents', detail: 'MCP-aware tools' },
           { id: 'web2', label: 'Internal Web', detail: 'Search UI' },
           { id: 'audit3', label: 'Audit', detail: 'Query history' }
@@ -401,7 +401,7 @@ export const timeline: TimelineEpisode[] = [
       },
       {
         title: 'Standardized',
-        body: 'OpenAPI + MCP make it equally usable by humans, apps, and agents.',
+        body: 'OpenAI + MCP make it equally usable by humans, apps, and agents.',
         icon: 'scale'
       },
       {
