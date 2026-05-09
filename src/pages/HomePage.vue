@@ -29,6 +29,7 @@ const FEATURED_IDS = [
   'api-aggregator',
   'sds-filesearch',
   'nexfile',
+  'vessel-sentinel',
   'sequelize-field-parser',
   'axios-http-logger'
 ]

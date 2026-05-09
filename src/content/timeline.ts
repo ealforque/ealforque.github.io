@@ -581,8 +581,79 @@ export const timeline: TimelineEpisode[] = [
     repoUrl: 'https://github.com/ealforque'
   },
   {
-    id: 'sequelize-field-parser',
+    id: 'vessel-sentinel',
     number: '08',
+    title: 'Vessel Sentinel — AI Maritime Compliance Risk Register',
+    org: 'Personal project · Maritime operations',
+    date: '2026 — Ongoing',
+    shortDate: '2026',
+    description:
+      'An AI-enabled compliance risk register for maritime operations that analyzes incident reports, surfaces potential regulatory exposure, and assigns ownership to designated personnel for assessment, mitigation, and follow-up.',
+    architecture: [
+      {
+        id: 'extract',
+        title: 'Capture',
+        caption: 'Incidents & compliance context',
+        nodes: [
+          { id: 'vs-incidents', label: 'Incident Reports', detail: 'Structured intake' },
+          { id: 'vs-risk-lib', label: 'Risk Register', detail: 'Compliance controls' },
+          { id: 'vs-evidence', label: 'Evidence', detail: 'Attachments & notes' },
+          { id: 'vs-roles', label: 'Personnel', detail: 'Role ownership map' }
+        ]
+      },
+      {
+        id: 'transform',
+        title: 'Assess',
+        caption: 'Classify · score · assign',
+        nodes: [
+          { id: 'vs-ai', label: 'AI Analysis', detail: 'Risk matching' },
+          { id: 'vs-rules', label: 'Rule Engine', detail: 'Severity thresholds' },
+          { id: 'vs-routing', label: 'Assignment', detail: 'Designated owners' },
+          { id: 'vs-sla', label: 'SLA Tracking', detail: 'Due dates' }
+        ]
+      },
+      {
+        id: 'load',
+        title: 'Resolve',
+        caption: 'Mitigate · review · audit',
+        nodes: [
+          { id: 'vs-actions', label: 'Actions', detail: 'Mitigation tasks' },
+          { id: 'vs-review', label: 'Review', detail: 'Risk sign-off' },
+          { id: 'vs-alerts', label: 'Alerts', detail: 'Escalations' },
+          { id: 'vs-audit', label: 'Audit Trail', detail: 'Decision history' }
+        ]
+      }
+    ],
+    highlights: [
+      {
+        title: 'AI-enabled',
+        body: 'Incident narratives are analyzed against compliance controls to surface likely risk exposure.',
+        icon: 'spark'
+      },
+      {
+        title: 'Accountable',
+        body: 'Risks are routed to designated personnel with ownership, due dates, and escalation paths.',
+        icon: 'shield'
+      },
+      {
+        title: 'Operational',
+        body: 'Mitigation tasks, review status, and follow-up actions stay tied to each incident.',
+        icon: 'pulse'
+      },
+      {
+        title: 'Auditable',
+        body: 'Every classification, assignment, and closure decision is retained for compliance review.',
+        icon: 'scale'
+      }
+    ],
+    stack: ['Node.js', 'TypeScript', 'Vue 3', 'MySQL', 'OpenAI', 'Tailwind', 'Jest'],
+    integrations: ['OpenAI'],
+    disciplines: CORE_DISCIPLINES,
+    repoUrl: 'https://github.com/ealforque'
+  },
+  {
+    id: 'sequelize-field-parser',
+    number: '09',
     title: 'Sequelize Field Parser — NPM package',
     org: 'Open source · @ealforque/sequelize-field-parser',
     date: 'Published',
@@ -651,7 +722,7 @@ export const timeline: TimelineEpisode[] = [
   },
   {
     id: 'axios-http-logger',
-    number: '09',
+    number: '10',
     title: 'Axios HTTP Logger — NPM package',
     org: 'Open source · @ealforque/axios-http-logger',
     date: 'Published',
@@ -720,7 +791,7 @@ export const timeline: TimelineEpisode[] = [
   },
   {
     id: 'blueberry-etl',
-    number: '10',
+    number: '11',
     title: 'Blueberry Markets Data Ingestion ETL Pipelines',
     org: 'Blueberry Markets · Python',
     date: '2022 — 2024',
@@ -744,7 +815,7 @@ export const timeline: TimelineEpisode[] = [
   },
   {
     id: 'meridian-hotel-resort',
-    number: '11',
+    number: '12',
     title: 'Hotel & Resort Management System',
     org: 'Meridian SoftTech Solutions · PHP / Laravel',
     date: '2017 — 2021',
@@ -757,7 +828,7 @@ export const timeline: TimelineEpisode[] = [
   },
   {
     id: 'meridian-assessment-centre',
-    number: '12',
+    number: '13',
     title: 'Assessment Centre Management System',
     org: 'Meridian SoftTech Solutions · PHP / Laravel',
     date: '2017 — 2021',
@@ -770,7 +841,7 @@ export const timeline: TimelineEpisode[] = [
   },
   {
     id: 'meridian-crew',
-    number: '13',
+    number: '14',
     title: 'Crew Management System',
     org: 'Meridian SoftTech Solutions · PHP / Laravel',
     date: '2017 — 2021',
@@ -783,7 +854,7 @@ export const timeline: TimelineEpisode[] = [
   },
   {
     id: 'meridian-skin-clinic',
-    number: '14',
+    number: '15',
     title: 'Skin Clinic Management System',
     org: 'Meridian SoftTech Solutions · PHP / Laravel',
     date: '2017 — 2021',
@@ -796,7 +867,7 @@ export const timeline: TimelineEpisode[] = [
   },
   {
     id: 'meridian-delivery-collections',
-    number: '15',
+    number: '16',
     title: 'Delivery & Collections Management System',
     org: 'Meridian SoftTech Solutions · PHP / Laravel',
     date: '2017 — 2021',
@@ -809,7 +880,7 @@ export const timeline: TimelineEpisode[] = [
   },
   {
     id: 'meridian-reviewer',
-    number: '16',
+    number: '17',
     title: 'Reviewer Platform',
     org: 'Meridian SoftTech Solutions · PHP / Laravel',
     date: '2017 — 2021',
@@ -822,7 +893,7 @@ export const timeline: TimelineEpisode[] = [
   },
   {
     id: 'meridian-lms',
-    number: '17',
+    number: '18',
     title: 'Learning Management Platform',
     org: 'Meridian SoftTech Solutions · PHP / Laravel',
     date: '2017 — 2021',
@@ -835,7 +906,7 @@ export const timeline: TimelineEpisode[] = [
   },
   {
     id: 'meridian-vessel-monitoring',
-    number: '18',
+    number: '19',
     title: 'Vessel Monitoring System',
     org: 'Meridian SoftTech Solutions · PHP / Laravel',
     date: '2017 — 2021',
@@ -848,7 +919,7 @@ export const timeline: TimelineEpisode[] = [
   },
   {
     id: 'meridian-dormitory',
-    number: '19',
+    number: '20',
     title: 'Dormitory Management System',
     org: 'Meridian SoftTech Solutions · PHP / Laravel',
     date: '2017 — 2021',
@@ -861,7 +932,7 @@ export const timeline: TimelineEpisode[] = [
   },
   {
     id: 'meridian-question-development',
-    number: '20',
+    number: '21',
     title: 'Question Development System',
     org: 'Meridian SoftTech Solutions · PHP / Laravel',
     date: '2017 — 2021',
@@ -874,7 +945,7 @@ export const timeline: TimelineEpisode[] = [
   },
   {
     id: 'meridian-clinic-patient-profiling',
-    number: '21',
+    number: '22',
     title: 'Clinic Patient Profiling System',
     org: 'Meridian SoftTech Solutions · PHP / Laravel',
     date: '2017 — 2021',

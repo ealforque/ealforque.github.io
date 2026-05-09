@@ -213,6 +213,13 @@ export const personalProjects: {
     meta: 'MVC · DDD · TDD · SOLID · Repository pattern · 100% coverage'
   },
   {
+    name: 'Vessel Sentinel',
+    purpose:
+      'AI-enabled maritime operations compliance risk register that analyzes incident reports, identifies regulatory exposure, and routes ownership to designated personnel for assessment and mitigation.',
+    stack: ['Node.js', 'TypeScript', 'Vue 3', 'MySQL', 'OpenAI', 'Tailwind'],
+    meta: 'Compliance risk register · Incident analysis · Ownership routing'
+  },
+  {
     name: 'UAuth — Authentication Service',
     purpose:
       'Single shared authentication service for all served applications, with revocable JWT and CSRF protection.',
