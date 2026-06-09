@@ -213,6 +213,22 @@ export const personalProjects: {
     meta: 'MVC · DDD · TDD · SOLID · Repository pattern · 100% coverage'
   },
   {
+    name: 'Knowy',
+    purpose:
+      'An AI-enabled document repository which turns documents into an accessible, searchable, and assisted knowledge ecosystem.',
+    stack: [
+      'Node.js',
+      'TypeScript',
+      'GitHub Actions',
+      'MySQL',
+      'File Handling',
+      'Jest',
+      'Azure',
+      'OpenAI'
+    ],
+    meta: 'Semantic retrieval · Assisted knowledge workflows'
+  },
+  {
     name: 'Vessel Sentinel',
     purpose:
       'AI-enabled maritime operations compliance risk register that analyzes incident reports, identifies regulatory exposure, and routes ownership to designated personnel for assessment and mitigation.',

@@ -28,6 +28,7 @@ const FEATURED_IDS = [
   'po-sync',
   'api-aggregator',
   'sds-filesearch',
+  'knowy',
   'nexfile',
   'vessel-sentinel',
   'sequelize-field-parser',

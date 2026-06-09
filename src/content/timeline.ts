@@ -129,7 +129,7 @@ export const timeline: TimelineEpisode[] = [
         icon: 'pulse'
       }
     ],
-    stack: CORE_STACK,
+    stack: [...CORE_STACK, 'RabbitMQ'],
     integrations: ['Plexa', 'Onsite Companion', 'SimPro', 'TechnologyOne'],
     disciplines: CORE_DISCIPLINES,
     repoUrl: 'https://github.com/ealforque'
@@ -335,7 +335,7 @@ export const timeline: TimelineEpisode[] = [
         icon: 'shield'
       }
     ],
-    stack: CORE_STACK,
+    stack: [...CORE_STACK, 'RabbitMQ'],
     integrations: [
       'Plexa',
       'Onsite Companion',
@@ -652,8 +652,89 @@ export const timeline: TimelineEpisode[] = [
     repoUrl: 'https://github.com/ealforque'
   },
   {
-    id: 'sequelize-field-parser',
+    id: 'knowy',
     number: '09',
+    title: 'Knowy — AI-enabled Document Repository',
+    org: 'Personal project · AI knowledge ecosystem',
+    date: '2026 — Ongoing',
+    shortDate: '2026',
+    description:
+      'An AI-enabled document repository that turns documents into an accessible, searchable, and assisted knowledge ecosystem through semantic retrieval, grounded responses, and guided navigation.',
+    architecture: [
+      {
+        id: 'extract',
+        title: 'Knowledge Base',
+        caption: 'Documents & metadata',
+        nodes: [
+          { id: 'kn-docs', label: 'Document Library', detail: 'PDF' },
+          { id: 'kn-meta', label: 'Metadata', detail: 'Taxonomy & ownership' },
+          { id: 'kn-ingest', label: 'Ingest', detail: 'OCR + chunking' },
+          { id: 'kn-embed', label: 'Embeddings', detail: 'Vectorized chunks' }
+        ]
+      },
+      {
+        id: 'transform',
+        title: 'Assist',
+        caption: 'OpenAI grounded on opened document',
+        nodes: [
+          { id: 'kn-open', label: 'Opened Document', detail: 'Active context' },
+          { id: 'kn-openai', label: 'OpenAI', detail: 'Summarize / answer' },
+          { id: 'kn-ground', label: 'Grounding', detail: 'Source-bound responses' },
+          { id: 'kn-cite', label: 'Citation', detail: 'Referenced excerpts' }
+        ]
+      },
+      {
+        id: 'load',
+        title: 'User Experience',
+        caption: 'Reader · assistant · history',
+        nodes: [
+          { id: 'kn-reader', label: 'Document Reader', detail: 'Open + navigate' },
+          { id: 'kn-chat', label: 'Ask Assistant', detail: 'Grounded responses' },
+          { id: 'kn-search', label: 'Search', detail: 'Metadata + semantic' },
+          { id: 'kn-history', label: 'History', detail: 'Question trail' }
+        ]
+      }
+    ],
+    highlights: [
+      {
+        title: 'Accessible',
+        body: 'Centralizes dispersed documents into a single navigable knowledge layer.',
+        icon: 'spark'
+      },
+      {
+        title: 'Searchable',
+        body: 'Semantic retrieval surfaces intent-level matches beyond exact keywords.',
+        icon: 'scale'
+      },
+      {
+        title: 'Assisted',
+        body: 'AI assistance provides grounded summaries and answers with references.',
+        icon: 'shield'
+      },
+      {
+        title: 'Observable',
+        body: 'Search telemetry and audit history support iterative quality improvements.',
+        icon: 'pulse'
+      }
+    ],
+    stack: [
+      'Node.js',
+      'TypeScript',
+      'Cron',
+      'GitHub Actions',
+      'MySQL',
+      'File Handling',
+      'SQL Server',
+      'Jest',
+      'Azure'
+    ],
+    integrations: ['OpenAI'],
+    disciplines: CORE_DISCIPLINES,
+    repoUrl: 'https://github.com/ealforque'
+  },
+  {
+    id: 'sequelize-field-parser',
+    number: '10',
     title: 'Sequelize Field Parser — NPM package',
     org: 'Open source · @ealforque/sequelize-field-parser',
     date: 'Published',
@@ -722,7 +803,7 @@ export const timeline: TimelineEpisode[] = [
   },
   {
     id: 'axios-http-logger',
-    number: '10',
+    number: '11',
     title: 'Axios HTTP Logger — NPM package',
     org: 'Open source · @ealforque/axios-http-logger',
     date: 'Published',
@@ -791,7 +872,7 @@ export const timeline: TimelineEpisode[] = [
   },
   {
     id: 'blueberry-etl',
-    number: '11',
+    number: '12',
     title: 'Blueberry Markets Data Ingestion ETL Pipelines',
     org: 'Blueberry Markets · Python',
     date: '2022 — 2024',
@@ -815,7 +896,7 @@ export const timeline: TimelineEpisode[] = [
   },
   {
     id: 'meridian-hotel-resort',
-    number: '12',
+    number: '13',
     title: 'Hotel & Resort Management System',
     org: 'Meridian SoftTech Solutions · PHP / Laravel',
     date: '2017 — 2021',
@@ -828,7 +909,7 @@ export const timeline: TimelineEpisode[] = [
   },
   {
     id: 'meridian-assessment-centre',
-    number: '13',
+    number: '14',
     title: 'Assessment Centre Management System',
     org: 'Meridian SoftTech Solutions · PHP / Laravel',
     date: '2017 — 2021',
@@ -841,7 +922,7 @@ export const timeline: TimelineEpisode[] = [
   },
   {
     id: 'meridian-crew',
-    number: '14',
+    number: '15',
     title: 'Crew Management System',
     org: 'Meridian SoftTech Solutions · PHP / Laravel',
     date: '2017 — 2021',
@@ -854,7 +935,7 @@ export const timeline: TimelineEpisode[] = [
   },
   {
     id: 'meridian-skin-clinic',
-    number: '15',
+    number: '16',
     title: 'Skin Clinic Management System',
     org: 'Meridian SoftTech Solutions · PHP / Laravel',
     date: '2017 — 2021',
@@ -867,7 +948,7 @@ export const timeline: TimelineEpisode[] = [
   },
   {
     id: 'meridian-delivery-collections',
-    number: '16',
+    number: '17',
     title: 'Delivery & Collections Management System',
     org: 'Meridian SoftTech Solutions · PHP / Laravel',
     date: '2017 — 2021',
@@ -880,7 +961,7 @@ export const timeline: TimelineEpisode[] = [
   },
   {
     id: 'meridian-reviewer',
-    number: '17',
+    number: '18',
     title: 'Reviewer Platform',
     org: 'Meridian SoftTech Solutions · PHP / Laravel',
     date: '2017 — 2021',
@@ -893,7 +974,7 @@ export const timeline: TimelineEpisode[] = [
   },
   {
     id: 'meridian-lms',
-    number: '18',
+    number: '19',
     title: 'Learning Management Platform',
     org: 'Meridian SoftTech Solutions · PHP / Laravel',
     date: '2017 — 2021',
@@ -906,7 +987,7 @@ export const timeline: TimelineEpisode[] = [
   },
   {
     id: 'meridian-vessel-monitoring',
-    number: '19',
+    number: '20',
     title: 'Vessel Monitoring System',
     org: 'Meridian SoftTech Solutions · PHP / Laravel',
     date: '2017 — 2021',
@@ -919,7 +1000,7 @@ export const timeline: TimelineEpisode[] = [
   },
   {
     id: 'meridian-dormitory',
-    number: '20',
+    number: '21',
     title: 'Dormitory Management System',
     org: 'Meridian SoftTech Solutions · PHP / Laravel',
     date: '2017 — 2021',
@@ -932,7 +1013,7 @@ export const timeline: TimelineEpisode[] = [
   },
   {
     id: 'meridian-question-development',
-    number: '21',
+    number: '22',
     title: 'Question Development System',
     org: 'Meridian SoftTech Solutions · PHP / Laravel',
     date: '2017 — 2021',
@@ -945,7 +1026,7 @@ export const timeline: TimelineEpisode[] = [
   },
   {
     id: 'meridian-clinic-patient-profiling',
-    number: '22',
+    number: '23',
     title: 'Clinic Patient Profiling System',
     org: 'Meridian SoftTech Solutions · PHP / Laravel',
     date: '2017 — 2021',
