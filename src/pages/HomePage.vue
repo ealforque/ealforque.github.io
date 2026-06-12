@@ -230,7 +230,7 @@ const featured = FEATURED_IDS
             <h3 class="heading mt-3 text-xl">{{ p.title }}</h3>
             <p class="mt-2 text-sm text-muted line-clamp-3">{{ p.description }}</p>
             <div class="mt-6 flex flex-wrap gap-1.5">
-              <span v-for="t in p.stack.slice(0, 4)" :key="t" class="chip">{{ t }}</span>
+              <span v-for="t in p.stack" :key="t" class="chip">{{ t }}</span>
             </div>
             <span
               class="mt-6 inline-flex items-center gap-1 text-xs text-accent transition-all duration-300 group-hover:gap-2"

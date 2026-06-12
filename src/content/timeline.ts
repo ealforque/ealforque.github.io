@@ -130,7 +130,7 @@ export const timeline: TimelineEpisode[] = [
       }
     ],
     stack: [...CORE_STACK, 'RabbitMQ'],
-    integrations: ['Plexa', 'Onsite Companion', 'SimPro', 'TechnologyOne'],
+    integrations: ['Plexa', 'Onsite Companion', 'SimPro', 'TechnologyOne', 'BrightFox'],
     disciplines: CORE_DISCIPLINES,
     repoUrl: 'https://github.com/ealforque'
   },
@@ -193,7 +193,7 @@ export const timeline: TimelineEpisode[] = [
         icon: 'scale'
       }
     ],
-    stack: [...CORE_STACK, 'Webhooks'],
+    stack: [...CORE_STACK, 'RabbitMQ', 'Webhooks'],
     integrations: ['IntelliHR', 'HR3'],
     disciplines: CORE_DISCIPLINES,
     repoUrl: 'https://github.com/ealforque'
@@ -264,7 +264,7 @@ export const timeline: TimelineEpisode[] = [
         icon: 'spark'
       }
     ],
-    stack: CORE_STACK,
+    stack: [...CORE_STACK, 'RabbitMQ'],
     integrations: ['Onsite Companion', 'Plexa'],
     disciplines: CORE_DISCIPLINES,
     repoUrl: 'https://github.com/ealforque'
@@ -341,6 +341,7 @@ export const timeline: TimelineEpisode[] = [
       'Onsite Companion',
       'SimPro',
       'TechnologyOne',
+      'BrightFox',
       'IntelliHR',
       'HR3',
       'ABR',
