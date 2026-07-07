@@ -68,7 +68,7 @@ export const timeline: TimelineEpisode[] = [
   {
     id: 'etl-pipelines',
     number: '01',
-    title: 'Distributed ETL and Data Synchronization Application',
+    title: 'Distributed ETL and Data Synchronization Pipelines',
     org: 'GemLife · Node + TypeScript',
     date: 'Jul 2025 — Present',
     shortDate: '2025 · 07',
@@ -129,8 +129,15 @@ export const timeline: TimelineEpisode[] = [
         icon: 'pulse'
       }
     ],
-    stack: [...CORE_STACK, 'RabbitMQ'],
-    integrations: ['Plexa', 'Onsite Companion', 'SimPro', 'TechnologyOne', 'BrightFox'],
+    stack: [...CORE_STACK, 'RabbitMQ', 'Microsoft Fabric'],
+    integrations: [
+      'Plexa',
+      'Onsite Companion',
+      'SimPro',
+      'TechnologyOne',
+      'BrightFox',
+      'Microsoft Teams'
+    ],
     disciplines: CORE_DISCIPLINES,
     repoUrl: 'https://github.com/ealforque'
   },
@@ -201,12 +208,12 @@ export const timeline: TimelineEpisode[] = [
   {
     id: 'po-sync',
     number: '03',
-    title: 'Bi-Directional PO Synchronization Service',
+    title: 'Bi-Directional Data Synchronization Service',
     org: 'GemLife · Plexa ↔ Onsite Companion',
     date: 'Sep 2025',
     shortDate: '2025 · 09',
     description:
-      'A two-way data synchronization system between Plexa and Onsite Companion that keeps procurement workflows consistent across both platforms — including conflict resolution, partial-update handling, and explicit state reconciliation.',
+      'A two-way data synchronization system between Plexa and Onsite Companion that keeps purchase orders, projects, and service providers or supplier jobs consistent across both platforms — including conflict resolution, partial-update handling, and explicit state reconciliation.',
     architecture: [
       {
         id: 'extract',
@@ -265,7 +272,7 @@ export const timeline: TimelineEpisode[] = [
       }
     ],
     stack: [...CORE_STACK, 'RabbitMQ'],
-    integrations: ['Onsite Companion', 'Plexa'],
+    integrations: ['Onsite Companion', 'Plexa', 'Microsoft Teams'],
     disciplines: CORE_DISCIPLINES,
     repoUrl: 'https://github.com/ealforque'
   },
@@ -335,7 +342,7 @@ export const timeline: TimelineEpisode[] = [
         icon: 'shield'
       }
     ],
-    stack: [...CORE_STACK, 'RabbitMQ'],
+    stack: [...CORE_STACK, 'RabbitMQ', 'Microsoft Fabric'],
     integrations: [
       'Plexa',
       'Onsite Companion',
@@ -345,14 +352,51 @@ export const timeline: TimelineEpisode[] = [
       'IntelliHR',
       'HR3',
       'ABR',
-      'Microsoft Graph'
+      'Microsoft Graph',
+      'Microsoft Teams'
+    ],
+    disciplines: CORE_DISCIPLINES,
+    repoUrl: 'https://github.com/ealforque'
+  },
+  {
+    id: 'unified-app-sso-portal',
+    number: '05',
+    title: 'Unified Application SSO Authentication and Authorization Portal',
+    org: 'GemLife · Unified access gateway',
+    date: 'Nov 2025',
+    shortDate: '2025 · 11',
+    description:
+      'A single unified portal that acts as the entry point and gateway for users to access different applications through backend-managed sessions, centralizing authentication and authorization flows across the platform.',
+    stack: ['Node.js', 'TypeScript', 'Vue.js', 'Microsoft Graph', 'MySQL', 'Jest', 'RBAC'],
+    integrations: ['Microsoft SSO'],
+    disciplines: CORE_DISCIPLINES,
+    repoUrl: 'https://github.com/ealforque'
+  },
+  {
+    id: 'simpro-dashboards-portal',
+    number: '06',
+    title: 'SimPro Dashboards Portal',
+    org: 'GemLife · Unified analytics portal',
+    date: 'Dec 2025',
+    shortDate: '2025 · 12',
+    description:
+      'A single unified portal for all SimPro dashboards created through Power BI, giving stakeholders one place to discover, access, and use operational reporting views.',
+    stack: [
+      'Node.js',
+      'TypeScript',
+      'Vue.js',
+      'Microsoft Graph',
+      'MySQL',
+      'Jest',
+      'RBAC',
+      'Power BI'
     ],
     disciplines: CORE_DISCIPLINES,
     repoUrl: 'https://github.com/ealforque'
   },
   {
     id: 'sds-filesearch',
-    number: '05',
+    number: '07',
     title: 'SDS File Search (Semantic + MCP / OpenAI)',
     org: 'GemLife · AI document retrieval',
     date: 'Nov 2025',
@@ -432,77 +476,8 @@ export const timeline: TimelineEpisode[] = [
     repoUrl: 'https://github.com/ealforque'
   },
   {
-    id: 'auth-platform',
-    number: '06',
-    title: 'Authentication & Authorization Platform',
-    org: 'UAuth · Personal project',
-    date: '2024 — Ongoing',
-    shortDate: '2024 · 06',
-    description:
-      'A secure OAuth-based session management service with revocable JWT infrastructure and fine-grained RBAC. Supports multi-tenant access control, session invalidation, and a secure end-to-end token lifecycle — designed to be the single shared auth service across multiple applications.',
-    architecture: [
-      {
-        id: 'extract',
-        title: 'Identity',
-        caption: 'Sign-in surface',
-        nodes: [
-          { id: 'oauth', label: 'OAuth', detail: 'Provider flows' },
-          { id: 'mfa', label: 'MFA', detail: 'TOTP / WebAuthn' },
-          { id: 'session', label: 'Session', detail: 'HttpOnly cookies' },
-          { id: 'csrf', label: 'CSRF', detail: 'Double-submit pattern' }
-        ]
-      },
-      {
-        id: 'transform',
-        title: 'Authorization',
-        caption: 'Issue · scope · revoke',
-        nodes: [
-          { id: 'jwt', label: 'JWT', detail: 'Short-lived access' },
-          { id: 'refresh', label: 'Refresh', detail: 'Rotating tokens' },
-          { id: 'rbac', label: 'RBAC', detail: 'Role + scope checks' },
-          { id: 'revoke', label: 'Revoke', detail: 'Server-side blocklist' }
-        ]
-      },
-      {
-        id: 'load',
-        title: 'Consumers',
-        caption: 'Apps & services',
-        nodes: [
-          { id: 'apps', label: 'Apps', detail: 'Multi-tenant clients' },
-          { id: 'apis', label: 'APIs', detail: 'Verified callers' },
-          { id: 'admin', label: 'Admin', detail: 'Tenant control plane' },
-          { id: 'logs', label: 'Audit', detail: 'Sign-in trails' }
-        ]
-      }
-    ],
-    highlights: [
-      {
-        title: 'Revocable JWT',
-        body: 'Short-lived tokens + server-side blocklist for instant invalidation.',
-        icon: 'shield'
-      },
-      {
-        title: 'CSRF-Hardened',
-        body: 'HttpOnly cookies paired with the double-submit CSRF pattern.',
-        icon: 'spark'
-      },
-      {
-        title: 'Multi-Tenant',
-        body: 'Tenant-scoped roles and policies isolate every customer cleanly.',
-        icon: 'scale'
-      },
-      {
-        title: 'Auditable',
-        body: 'Full sign-in and authorization trails for security review.',
-        icon: 'pulse'
-      }
-    ],
-    stack: ['Node.js', 'Express', 'TypeScript', 'MySQL', 'Vue 3', 'Terraform', 'AWS'],
-    repoUrl: 'https://github.com/ealforque'
-  },
-  {
     id: 'nexfile',
-    number: '07',
+    number: '09',
     title: 'NexFile — AI-Powered Delta-based Document Management',
     org: 'Personal project · Full stack',
     date: '2024 — Ongoing',
@@ -583,7 +558,7 @@ export const timeline: TimelineEpisode[] = [
   },
   {
     id: 'vessel-sentinel',
-    number: '08',
+    number: '10',
     title: 'Vessel Sentinel — AI Maritime Compliance Risk Register',
     org: 'Personal project · Maritime operations',
     date: '2026 — Ongoing',
@@ -654,7 +629,7 @@ export const timeline: TimelineEpisode[] = [
   },
   {
     id: 'knowy',
-    number: '09',
+    number: '11',
     title: 'Knowy — AI-enabled Document Repository',
     org: 'Personal project · AI knowledge ecosystem',
     date: '2026 — Ongoing',
@@ -735,7 +710,7 @@ export const timeline: TimelineEpisode[] = [
   },
   {
     id: 'sequelize-field-parser',
-    number: '10',
+    number: '12',
     title: 'Sequelize Field Parser — NPM package',
     org: 'Open source · @ealforque/sequelize-field-parser',
     date: 'Published',
@@ -870,6 +845,75 @@ export const timeline: TimelineEpisode[] = [
     ],
     stack: ['Node.js', 'TypeScript', 'Axios', 'Jest', 'ESLint', 'NPM'],
     repoUrl: 'https://www.npmjs.com/package/@ealforque/axios-http-logger'
+  },
+  {
+    id: 'auth-platform',
+    number: '08',
+    title: 'Authentication & Authorization Platform',
+    org: 'UAuth · Personal project',
+    date: '2024 — Ongoing',
+    shortDate: '2024 · 06',
+    description:
+      'A secure OAuth-based session management service with revocable JWT infrastructure and fine-grained RBAC. Supports multi-tenant access control, session invalidation, and a secure end-to-end token lifecycle — designed to be the single shared auth service across multiple applications.',
+    architecture: [
+      {
+        id: 'extract',
+        title: 'Identity',
+        caption: 'Sign-in surface',
+        nodes: [
+          { id: 'oauth', label: 'OAuth', detail: 'Provider flows' },
+          { id: 'mfa', label: 'MFA', detail: 'TOTP / WebAuthn' },
+          { id: 'session', label: 'Session', detail: 'HttpOnly cookies' },
+          { id: 'csrf', label: 'CSRF', detail: 'Double-submit pattern' }
+        ]
+      },
+      {
+        id: 'transform',
+        title: 'Authorization',
+        caption: 'Issue · scope · revoke',
+        nodes: [
+          { id: 'jwt', label: 'JWT', detail: 'Short-lived access' },
+          { id: 'refresh', label: 'Refresh', detail: 'Rotating tokens' },
+          { id: 'rbac', label: 'RBAC', detail: 'Role + scope checks' },
+          { id: 'revoke', label: 'Revoke', detail: 'Server-side blocklist' }
+        ]
+      },
+      {
+        id: 'load',
+        title: 'Consumers',
+        caption: 'Apps & services',
+        nodes: [
+          { id: 'apps', label: 'Apps', detail: 'Multi-tenant clients' },
+          { id: 'apis', label: 'APIs', detail: 'Verified callers' },
+          { id: 'admin', label: 'Admin', detail: 'Tenant control plane' },
+          { id: 'logs', label: 'Audit', detail: 'Sign-in trails' }
+        ]
+      }
+    ],
+    highlights: [
+      {
+        title: 'Revocable JWT',
+        body: 'Short-lived tokens + server-side blocklist for instant invalidation.',
+        icon: 'shield'
+      },
+      {
+        title: 'CSRF-Hardened',
+        body: 'HttpOnly cookies paired with the double-submit CSRF pattern.',
+        icon: 'spark'
+      },
+      {
+        title: 'Multi-Tenant',
+        body: 'Tenant-scoped roles and policies isolate every customer cleanly.',
+        icon: 'scale'
+      },
+      {
+        title: 'Auditable',
+        body: 'Full sign-in and authorization trails for security review.',
+        icon: 'pulse'
+      }
+    ],
+    stack: ['Node.js', 'Express', 'TypeScript', 'MySQL', 'Vue 3', 'Terraform', 'AWS'],
+    repoUrl: 'https://github.com/ealforque'
   },
   {
     id: 'blueberry-etl',

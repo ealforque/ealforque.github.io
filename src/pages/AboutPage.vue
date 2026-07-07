@@ -31,21 +31,27 @@ useScrollReveal()
         <div class="ui-weld glass rounded-2xl p-6">
           <p class="font-mono text-[11px] uppercase tracking-[0.3em] text-accent/80">Quick facts</p>
           <dl class="mt-5 space-y-4 text-sm">
-            <div class="flex items-baseline justify-between gap-6">
-              <dt class="text-muted">Based in</dt>
-              <dd>{{ profile.location }}</dd>
+            <div class="flex items-start gap-4">
+              <dt class="w-1/5 shrink-0 text-muted">Based in</dt>
+              <dd class="w-4/5 text-right">Gold Coast, Queensland, Australia</dd>
             </div>
-            <div class="flex items-baseline justify-between gap-6">
-              <dt class="text-muted">Working in</dt>
-              <dd>Node · TS · Vue · MySQL · Azure</dd>
+            <div class="flex items-start gap-4">
+              <dt class="w-1/5 shrink-0 text-muted">Working in</dt>
+              <dd class="w-4/5 text-right">
+                Node.js, Express, TypeScript, GitHub Actions, Jest, Vue.js, OpenAI, Tailwind,
+                Sequelize, PHP, Laravel, PHPUnit, RBAC, RabbitMQ, Webhooks, ESLint, MySQL · SQL
+                Server, Microsoft Fabric, Snowflake, Azure, Linode, Terraform
+              </dd>
             </div>
-            <div class="flex items-baseline justify-between gap-6">
-              <dt class="text-muted">Currently</dt>
-              <dd>Full Stack Dev @ GemLife</dd>
+            <div class="flex items-start gap-4">
+              <dt class="w-1/5 shrink-0 text-muted">Currently</dt>
+              <dd class="w-4/5 text-right">Full Stack Software Developer @ GemLife</dd>
             </div>
-            <div class="flex items-baseline justify-between gap-6">
-              <dt class="text-muted">Open to</dt>
-              <dd>Integrations · Platform · IC</dd>
+            <div class="flex items-start gap-4">
+              <dt class="w-1/5 shrink-0 text-muted">Interested with</dt>
+              <dd class="w-4/5 text-right">
+                API Integrations · Backend Engineering · ETL and Data Pipelines · API Development
+              </dd>
             </div>
           </dl>
         </div>

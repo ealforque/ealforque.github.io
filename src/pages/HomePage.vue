@@ -4,6 +4,7 @@ import { RouterLink } from 'vue-router'
 import { profile, strengths, techStack } from '@/content/portfolio'
 import { timeline } from '@/content/timeline'
 import { useScrollReveal } from '@/composables/useScrollReveal'
+import profilePhoto from '@/assets/img/photo/photo.png'
 
 useScrollReveal()
 
@@ -22,21 +23,7 @@ const onMove = (e: MouseEvent) => {
 onMounted(() => window.addEventListener('mousemove', onMove, { passive: true }))
 onBeforeUnmount(() => window.removeEventListener('mousemove', onMove))
 
-const FEATURED_IDS = [
-  'etl-pipelines',
-  'hr-onboarding-bridge',
-  'po-sync',
-  'api-aggregator',
-  'sds-filesearch',
-  'knowy',
-  'nexfile',
-  'vessel-sentinel',
-  'sequelize-field-parser',
-  'axios-http-logger'
-]
-const featured = FEATURED_IDS
-  .map((id) => timeline.find((p) => p.id === id))
-  .filter((p): p is (typeof timeline)[number] => Boolean(p))
+const featured = timeline.slice(0, 12)
 </script>
 
 <template>
@@ -102,39 +89,22 @@ const featured = FEATURED_IDS
               </div>
 
               <div class="profile-core">
-                <svg viewBox="0 0 400 400" class="h-full w-full" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
-                      <stop offset="0%" stop-color="#161a26" />
-                      <stop offset="100%" stop-color="#090b12" />
-                    </linearGradient>
-                    <linearGradient id="skin" x1="0" x2="1" y1="0" y2="1">
-                      <stop offset="0%" stop-color="#7c5cff" />
-                      <stop offset="100%" stop-color="#22d3ee" />
-                    </linearGradient>
-                    <radialGradient id="halo" cx="50%" cy="36%" r="42%">
-                      <stop offset="0%" stop-color="rgba(124,92,255,0.36)" />
-                      <stop offset="100%" stop-color="rgba(124,92,255,0)" />
-                    </radialGradient>
-                  </defs>
-                  <rect width="400" height="400" rx="200" fill="url(#bg)" />
-                  <circle cx="200" cy="155" r="130" fill="url(#halo)" />
-                  <path
-                    d="M72 400 C 92 300, 150 258, 200 258 C 250 258, 308 300, 328 400 Z"
-                    fill="url(#skin)"
-                    opacity="0.84"
+                <div class="profile-photo-wrap">
+                  <img :src="profilePhoto" alt="Erica Alforque profile photo" class="profile-photo" />
+                  <img
+                    :src="profilePhoto"
+                    alt=""
+                    aria-hidden="true"
+                    class="profile-photo-glitch profile-photo-glitch-cyan"
                   />
-                  <circle cx="200" cy="178" r="78" fill="url(#skin)" />
-                  <rect
-                    x="8"
-                    y="8"
-                    width="384"
-                    height="384"
-                    rx="192"
-                    fill="none"
-                    stroke="rgba(255,255,255,0.09)"
+                  <img
+                    :src="profilePhoto"
+                    alt=""
+                    aria-hidden="true"
+                    class="profile-photo-glitch profile-photo-glitch-magenta"
                   />
-                </svg>
+                  <span aria-hidden="true" class="profile-photo-scanline" />
+                </div>
               </div>
             </div>
 
@@ -218,14 +188,14 @@ const featured = FEATURED_IDS
 
       <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         <RouterLink
-          v-for="p in featured"
+          v-for="(p, index) in featured"
           :key="p.id"
           to="/projects"
           class="reveal ui-weld group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-all duration-300 ease-in-out hover:scale-[1.03] hover:border-white/20 hover:bg-white/[0.06] hover:shadow-glow"
         >
           <div class="relative">
             <span class="font-mono text-[10px] uppercase tracking-[0.3em] text-accent/80">
-              Project {{ p.number }}
+              Project {{ String(index + 1).padStart(2, '0') }}
             </span>
             <h3 class="heading mt-3 text-xl">{{ p.title }}</h3>
             <p class="mt-2 text-sm text-muted line-clamp-3">{{ p.description }}</p>
@@ -256,3 +226,188 @@ const featured = FEATURED_IDS
     </section>
   </div>
 </template>
+
+<style scoped>
+.profile-photo-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(124, 92, 255, 0.25), transparent 54%),
+    radial-gradient(circle at 80% 80%, rgba(34, 211, 238, 0.2), transparent 48%),
+    linear-gradient(140deg, #161a26 0%, #090b12 100%);
+}
+
+.profile-photo {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+  filter: saturate(1.06) contrast(1.04);
+}
+
+.profile-photo-glitch {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+  opacity: 0.28;
+  pointer-events: none;
+}
+
+.profile-photo-glitch-cyan {
+  mix-blend-mode: screen;
+  filter: hue-rotate(162deg) saturate(1.7);
+  animation: glitch-cyan 1.8s steps(2, end) infinite;
+}
+
+.profile-photo-glitch-magenta {
+  mix-blend-mode: screen;
+  filter: hue-rotate(322deg) saturate(1.7);
+  animation: glitch-magenta 2s steps(2, end) infinite;
+}
+
+.profile-photo-scanline {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0) 14%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      rgba(8, 10, 16, 0.14) 0,
+      rgba(8, 10, 16, 0.14) 2px,
+      rgba(8, 10, 16, 0) 4px,
+      rgba(8, 10, 16, 0) 6px
+    );
+  mix-blend-mode: soft-light;
+  opacity: 0.8;
+  animation: scanline-drift 2.8s linear infinite;
+}
+
+@keyframes glitch-cyan {
+  0%,
+  8%,
+  23%,
+  42%,
+  70%,
+  100% {
+    transform: translate(0, 0);
+    clip-path: inset(0 0 0 0);
+  }
+  9% {
+    transform: translate(4px, -2px);
+    clip-path: inset(10% 0 68% 0);
+  }
+  10% {
+    transform: translate(-3px, 1px);
+    clip-path: inset(58% 0 10% 0);
+  }
+  11% {
+    transform: translate(3px, 2px);
+    clip-path: inset(34% 0 35% 0);
+  }
+  24% {
+    transform: translate(-4px, -1px);
+    clip-path: inset(70% 0 6% 0);
+  }
+  25% {
+    transform: translate(2px, 1px);
+    clip-path: inset(20% 0 50% 0);
+  }
+  43% {
+    transform: translate(3px, -2px);
+    clip-path: inset(48% 0 26% 0);
+  }
+  44% {
+    transform: translate(-2px, 1px);
+    clip-path: inset(14% 0 64% 0);
+  }
+  71% {
+    transform: translate(4px, 1px);
+    clip-path: inset(62% 0 8% 0);
+  }
+  72% {
+    transform: translate(-3px, -1px);
+    clip-path: inset(30% 0 38% 0);
+  }
+}
+
+@keyframes glitch-magenta {
+  0%,
+  15%,
+  32%,
+  58%,
+  84%,
+  100% {
+    transform: translate(0, 0);
+    clip-path: inset(0 0 0 0);
+  }
+  16% {
+    transform: translate(-4px, 2px);
+    clip-path: inset(72% 0 4% 0);
+  }
+  17% {
+    transform: translate(3px, -2px);
+    clip-path: inset(16% 0 56% 0);
+  }
+  18% {
+    transform: translate(-2px, 1px);
+    clip-path: inset(42% 0 30% 0);
+  }
+  33% {
+    transform: translate(4px, -1px);
+    clip-path: inset(8% 0 72% 0);
+  }
+  34% {
+    transform: translate(-3px, 0);
+    clip-path: inset(52% 0 20% 0);
+  }
+  59% {
+    transform: translate(-4px, -2px);
+    clip-path: inset(64% 0 12% 0);
+  }
+  60% {
+    transform: translate(2px, 1px);
+    clip-path: inset(28% 0 40% 0);
+  }
+  85% {
+    transform: translate(3px, -1px);
+    clip-path: inset(12% 0 62% 0);
+  }
+  86% {
+    transform: translate(-4px, 2px);
+    clip-path: inset(46% 0 24% 0);
+  }
+}
+
+@keyframes scanline-drift {
+  0% {
+    transform: translateY(-20%);
+  }
+  100% {
+    transform: translateY(20%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-photo-glitch-cyan,
+  .profile-photo-glitch-magenta,
+  .profile-photo-scanline {
+    animation: none;
+  }
+}
+</style>

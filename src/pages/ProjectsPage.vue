@@ -16,13 +16,13 @@ useScrollReveal()
 
     <div class="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
       <article
-        v-for="p in timeline"
+        v-for="(p, index) in timeline"
         :key="p.id"
         class="reveal ui-weld group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-all duration-300 ease-in-out hover:scale-[1.03] hover:border-white/20 hover:bg-white/[0.06] hover:shadow-glow"
       >
         <div class="relative">
           <span class="font-mono text-[10px] uppercase tracking-[0.3em] text-accent/80">
-            Project {{ p.number }}
+            Project {{ String(index + 1).padStart(2, '0') }}
           </span>
           <h3 class="heading mt-3 text-xl">{{ p.title }}</h3>
           <p class="mt-1 text-xs text-ink-400">{{ p.org }}</p>
